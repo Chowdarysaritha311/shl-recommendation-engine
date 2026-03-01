@@ -1,0 +1,22 @@
+services:
+  # FastAPI Backend
+  - type: web
+    name: shl-recommendation-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false   # set manually in Render dashboard
+      - key: DATA_PATH
+        value: data/shl_assessments.csv
+
+  # Streamlit Frontend
+  - type: web
+    name: shl-recommendation-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: API_URL
+        sync: false   # set to your FastAPI URL after deploying backend

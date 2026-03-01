@@ -1,0 +1,14 @@
+.env
+__pycache__/
+*.pyc
+*.pyo
+embeddings/
+data/shl_assessments.csv
+data/evaluation_results*
+data/firstname_lastname.csv
+.DS_Store
+*.egg-info/
+dist/
+build/
+venv/
+.venv/

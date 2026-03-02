@@ -17,7 +17,7 @@ load_dotenv()
 
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 DATA_PATH = os.getenv("DATA_PATH", "data/shl_assessments.csv")
-EMBEDDINGS_CACHE = "/tmp/assessment_embeddings.pkl"
+EMBEDDINGS_CACHE = "embeddings/assessment_embeddings.pkl"
 EMBED_MODEL = "models/gemini-embedding-001"
 CHAT_MODEL = "gemini-2.0-flash"
 

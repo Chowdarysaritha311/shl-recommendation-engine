@@ -10,7 +10,7 @@ An intelligent RAG-based recommendation engine that suggests the most relevant S
 
 | | Link |
 |---|---|
-| 🌐 **Web App** | [shl-recommender.streamlit.app](https://your-app.streamlit.app) |
+| 🌐 **Web App** | [https://shl-recommendation-enginegit-7xvmyvxmwfzjjzunktrwwa.streamlit.app/) |
 | ⚡ **API** | [shl-api.onrender.com/docs](https://your-api.onrender.com/docs) |
 
 ---

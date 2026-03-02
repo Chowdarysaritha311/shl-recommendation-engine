@@ -1,6 +1,6 @@
 """
 SHL Assessment Recommendation — Streamlit Web App
-Run: streamlit run app.py
+Run locally: streamlit run app.py
 """
 
 import streamlit as st
@@ -10,7 +10,8 @@ import os
 
 # ─── Config ──────────────────────────────────────────────────────────────────
 
-API_URL = os.getenv("API_URL", "http://localhost:8000")
+# Detect API URL: Use environment variable first, fallback to localhost
+API_URL = os.getenv("API_URL") or "https://shl-recommendation-api-lf5m.onrender.com"
 
 st.set_page_config(
     page_title="SHL Assessment Recommender",
@@ -109,7 +110,7 @@ query = st.text_area(
     "📝 Your query or job description",
     value=default_query,
     height=160,
-    placeholder="e.g. I am hiring for Java developers who can also collaborate effectively with my business teams...",
+    placeholder="e.g. I am hiring for Java developers who are team players...",
 )
 
 col1, col2, _ = st.columns([1.5, 1, 5])
@@ -169,8 +170,7 @@ if run_btn and query.strip():
   <h4>{i+1}. {a['name']}</h4>
   <a href="{a['url']}" target="_blank">{a['url']}</a><br><br>
   {types_html} {remote_badge} {adaptive_badge}
-  {'<br>' if dur_text else ''}
-  <span style="color:#555; font-size:0.85rem;">{dur_text}</span>
+  {'<br>' if dur_text else ''}<span style="color:#555; font-size:0.85rem;">{dur_text}</span>
   {'<br><p style="margin:8px 0 0; font-size:0.88rem; color:#444;">' + desc + '</p>' if desc else ''}
 </div>
 """, unsafe_allow_html=True)
